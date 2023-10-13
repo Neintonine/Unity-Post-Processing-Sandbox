@@ -14,7 +14,7 @@ namespace PostProcessingSandbox.Runtime.OutlineEffect
         
         public OutlinePass()
         {
-            this.renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+            this.renderPassEvent = RenderPassEvent.BeforeRenderingTransparents;
             this._renderer = new PassRenderer("OutlinePostProcessing", OutlinePass.SHADER_PATH);
         }
         
@@ -54,6 +54,20 @@ namespace PostProcessingSandbox.Runtime.OutlineEffect
             this._renderer.Material.SetTexture("_CameraDepthTexture", this._depthTexture);
             
             this._renderer.Material.SetColor("_OutlineColor", this.Volume.OutlineColor.value);
+            this._renderer.Material.SetInt("_OutlineWidth", this.Volume.OutlineWidth.value);
+
+            if (this.Volume.EdgeFeathering.value > 0)
+            {
+                this._renderer.Material.EnableKeyword("ENABLE_FEATHERING");
+
+                this._renderer.Material.SetFloat("_EdgeFeathering", this.Volume.EdgeFeathering.value);
+                this._renderer.Material.SetFloat("_EdgeFeatheringInverse", 1 / this.Volume.EdgeFeathering.value);
+            }
+            else
+            {
+                this._renderer.Material.DisableKeyword("ENABLE_FEATHERING");
+            }
+            
             this._renderer.Material.SetFloat("_SobelPower", this.Volume.SobelPower.value);
             this._renderer.Material.SetFloat("_HorizDiagCoeff", this.Volume.HorizontalDiagonalCoefficent.value);
             this._renderer.Material.SetFloat("_HorizAxisCoeff", this.Volume.HorizontalAxisCoefficent.value);

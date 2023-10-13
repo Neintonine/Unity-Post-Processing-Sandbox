@@ -43,3 +43,20 @@ float4 ffloat4(float xyzw)
 {
     return float4(xyzw,xyzw,xyzw,xyzw);
 }
+
+float4 debug_color(float brightness)
+{
+    return float4(brightness,brightness,brightness, 1);
+}
+float4 debug_color(float2 v)
+{
+    return ffloat4(v.x, 0, 1);
+}
+float4 debug_color(float2 v, float b)
+{
+    return ffloat4(v.x, b, 1);
+}
+float4 debug_color(float3 v)
+{
+    return ffloat4(v, 1);
+}
