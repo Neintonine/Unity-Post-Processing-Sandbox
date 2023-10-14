@@ -3,6 +3,8 @@ Contains some post processing effects that can be used in a game, that runs with
 
 The Post-Processing Effects are written against Unity 2022.3.10f1. They may/probably will work in older and newer versions... I didn't check yet.
 
+A list of effects you can find [here](./docs/effects.md).
+
 ## Repo-Structure
 - "Scripts" contains C# scripts used to run the effect.
 - "Shaders" contains the HLSL shaders to actually do the effect.
