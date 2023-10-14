@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace PostProcessingSandbox.Runtime.Framework
 {
@@ -14,12 +15,14 @@ namespace PostProcessingSandbox.Runtime.Framework
             get => this._material;
             set => this._material = value;
         }
-        
+
+        private string _name;
         private Shader _shader;
         private Material _material;
         
         public PassRenderer(string name, string shaderPath)
         {
+            _name = name;
             _profilingSampler = new ProfilingSampler(name);
             
             _shader = Shader.Find(shaderPath);

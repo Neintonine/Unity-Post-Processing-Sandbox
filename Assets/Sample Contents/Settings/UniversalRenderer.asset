@@ -72,3 +72,5 @@ MonoBehaviour:
   _effects:
   - PostProcessingSandbox.Runtime.OutlineEffect.OutlinePostProcessingVolume, PostProcessingSandbox,
     Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - PostProcessingSandbox.Runtime.DualToneDithering.DualToneDithering, PostProcessingSandbox,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

@@ -11,6 +11,13 @@ namespace PostProcessingSandbox.Runtime.Framework
         
         protected RTHandle TargetHandle { get; private set; }
         
+        public PostProcessingPass()
+        {
+            this.renderPassEvent = this.GetEvent();
+        }
+
+        protected abstract RenderPassEvent GetEvent();
+        
         public virtual void Setup(PostProcessingVolume volume)
         {
             this.Volume = volume;

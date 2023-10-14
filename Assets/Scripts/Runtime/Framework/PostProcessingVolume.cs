@@ -7,7 +7,7 @@ namespace PostProcessingSandbox.Runtime.Framework
     public abstract class PostProcessingVolume : VolumeComponent, IPostProcessComponent
     {
         protected PostProcessingPass pass;
-        
+
         public virtual bool IsActive()
         {
             return true;

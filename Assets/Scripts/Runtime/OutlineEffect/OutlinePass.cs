@@ -14,10 +14,14 @@ namespace PostProcessingSandbox.Runtime.OutlineEffect
         
         public OutlinePass()
         {
-            this.renderPassEvent = RenderPassEvent.BeforeRenderingTransparents;
             this._renderer = new PassRenderer("OutlinePostProcessing", OutlinePass.SHADER_PATH);
         }
-        
+
+        protected override RenderPassEvent GetEvent()
+        {
+            return RenderPassEvent.BeforeRenderingTransparents;
+        }
+
         public override void Setup(PostProcessingVolume volume)
         {
             base.Setup(volume);
